@@ -17,7 +17,7 @@ public class DPMain {
         //
         //2.f(x) = Max<p<x,a(p)<a(x)>(f(p))+1
 
-        int[] f = new int[]{1,1,1,1,1,1,1,1,1,1};
+        int[] f = new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
         int[] a = new int[]{1, 2, 3, 6, 7, 3, 4, 5, 6, 7};
 
         for (int x = 0; x < f.length; x++) {

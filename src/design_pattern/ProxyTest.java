@@ -1,5 +1,7 @@
 package design_pattern;
 
+import com.sun.beans.WeakCache;
+
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
@@ -42,26 +44,29 @@ public class ProxyTest {
         }
     }
 
-    static class PlayerInvocationHandler implements java.lang.reflect.InvocationHandler{
-        private Gamer gamer;
+    static class PlayerInvocationHandler<T> implements java.lang.reflect.InvocationHandler{
+        private T proxyObj;
 
-        public Gamer getGamer() {
-            return gamer;
+        public PlayerInvocationHandler() {
         }
 
-        public void setGamer(Gamer gamer) {
-            this.gamer = gamer;
-        }
+        /**
+         * @param obj 被代理类，即委托类
+         * */
+        public Object bindProxy(T obj) {
+            if (obj instanceof Gamer) {
+                proxyObj = obj;
+                return Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(), this);
+            }
 
-        public PlayerInvocationHandler(Gamer gamePlayer) {
-            setGamer(gamePlayer);
+            return null;
         }
 
         @Override
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
             System.out.println("invoke before");
 
-            Object result = method.invoke(gamer, args);
+            Object result = method.invoke(proxyObj, args);
 
             System.out.println("invoke after");
 
@@ -71,15 +76,27 @@ public class ProxyTest {
 
 
     public static void main(String[] args) {
-        Gamer player = new Player();
+        //1.声明被代理类对象.
+        Gamer player = () -> System.out.println("anonymous class play()");
 
-        PlayerInvocationHandler handler = new PlayerInvocationHandler(player);
+        //2.实例化一个 InvocationHandler，传入被代理类.
+        PlayerInvocationHandler handler = new PlayerInvocationHandler();
 
+        //3.绑定委托类并实例化代理类，并返回代理类
+        Gamer playerProxy = (Gamer) handler.bindProxy(player);
+
+/*        //3.实例化一个代理类
         Gamer gamerProxy = (Gamer)
-                Proxy.newProxyInstance(handler.getClass().getClassLoader(),player.getClass().getInterfaces(),handler);
+                Proxy.newProxyInstance(ProxyTest.class.getClassLoader(),player.getClass().getInterfaces(),handler);*/
 
-        gamerProxy.play();
+        //4.调用代理类的方法.
+        playerProxy.play();
+
     }
 
+    private static void test() {
+        WeakCache<String, Player> weakCache = new WeakCache<>();
+        weakCache.put("ZY", new Player());
+    }
 
 }
