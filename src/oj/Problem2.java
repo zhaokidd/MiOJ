@@ -1,3 +1,5 @@
+package oj;
+
 import java.util.Scanner;
 
 public class Problem2 {

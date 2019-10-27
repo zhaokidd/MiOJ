@@ -1,3 +1,5 @@
+package oj;
+
 import sun.awt.image.BufferedImageDevice;
 
 import java.awt.image.BufferedImage;
