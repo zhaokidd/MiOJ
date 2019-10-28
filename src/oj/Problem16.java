@@ -81,6 +81,18 @@ public class Problem16 {
                 index++;
             }
 
+            //计算栈中剩余元素的值,只有加减运算符和数值
+            while (stack.size() > 1) {
+                Operand operand2 = (Operand) stack.pop();
+                Operator operator = (Operator) stack.pop();
+                Operand operand1 = (Operand) stack.pop();
+
+                switch (operator.value){
+                    case Operator.PLUS:
+                        break;
+                    case Operator.MINUS:
+                }
+            }
 
         }
     }
