@@ -77,7 +77,12 @@ public class ProxyTest {
 
     public static void main(String[] args) {
         //1.声明被代理类对象.
-        Gamer player = () -> System.out.println("anonymous class play()");
+        Gamer player = new Gamer() {
+            @Override
+            public void play() {
+                System.out.println("anonymous class play()");
+            }
+        };
 
         //2.实例化一个 InvocationHandler，传入被代理类.
         PlayerInvocationHandler handler = new PlayerInvocationHandler();
