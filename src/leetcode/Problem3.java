@@ -16,6 +16,10 @@ import java.util.Scanner;
  * ２. 更新当前最长子串长度.
  * 3. 更新末尾游标对应元素的索引
  * 4. 移动末尾游标向后一位.
+ *
+ * 时间复杂度分析:
+ * 穷举法：O(n3)
+ * 窗口法:O(n)~O(2n)
  */
 public class Problem3 {
     public static int lengthOfLongestSubstring(String s) {
