@@ -18,7 +18,7 @@ import java.util.Stack;
  * ]
  *
  * 解题思路:
- * 用队列保存bfs遍历结果,每层遍历结束后在队列末尾存储分隔符标志位.
+ * 用队列保存bfs遍历结果,用另一个队列保存bfs的子节点.
  *
  */
 public class LeetCode102 {
