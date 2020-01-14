@@ -2,7 +2,7 @@ package src.kotlin.codelabs
 
 import com.sun.istack.internal.NotNull
 
-data class User(@param:NotNull var firstName: String?, var lastName: String?)
+data class User(@param:NotNull var firstName: String?, var lastName: String? =null)
 
 
 fun main(){
