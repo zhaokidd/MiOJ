@@ -1,4 +1,4 @@
-package java_think;
+package src.java_think;
 
 public class SubObject extends BaseObject{
     static {

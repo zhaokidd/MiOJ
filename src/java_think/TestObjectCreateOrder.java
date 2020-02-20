@@ -1,4 +1,4 @@
-package java_think;
+package src.java_think;
 
 /***
  * 类加载的初始化顺序：

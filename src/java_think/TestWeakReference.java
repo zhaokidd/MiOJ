@@ -1,4 +1,4 @@
-package java_think;
+package src.java_think;
 
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
