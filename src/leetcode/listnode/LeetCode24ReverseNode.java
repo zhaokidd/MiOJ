@@ -1,4 +1,4 @@
-package src.leetcode.sort;
+package src.leetcode.listnode;
 
 public class LeetCode24ReverseNode {
     public static void main(String[] args) {
