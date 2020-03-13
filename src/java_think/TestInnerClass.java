@@ -35,7 +35,7 @@ public class TestInnerClass {
 
         //局部内部类
         final int temp = 2;
-        HashMap hashMap = new HashMap();
+        final HashMap hashMap = new HashMap();
         class FieldInnerClass{
             private void test(){
                 System.out.println(temp);
