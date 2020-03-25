@@ -1,4 +1,4 @@
-package src.listnode;
+package src.leetcode.listnode;
 
 /**
  * 获取中间位置的节点
