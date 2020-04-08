@@ -30,7 +30,9 @@ public class LeetCode92ReverseListNodeMN {
                 newHead = current;
             } else if (index == n + 1) {
                 newTail = current;
-            } else if (index >= m && index <= n) {
+            }
+
+            if (index >= m && index <= n) {
                 stack.push(current);
             }
 
@@ -40,24 +42,31 @@ public class LeetCode92ReverseListNodeMN {
 
         ListNode tempHead = null;
         ListNode tempTail = null;
+        ListNode tempCurrent = null;
         if (stack.size() > 0) {
-            tempHead = stack.pop();
+            tempCurrent = stack.pop();
+            tempHead = tempCurrent;
             tempTail = tempHead;
-            while (stack.peek() != null) {
+            while (!stack.isEmpty() && stack.peek() != null) {
                 tempTail = stack.pop();
-                tempHead.next = tempTail;
+                tempCurrent.next = tempTail;
+                tempCurrent = tempTail;
             }
         }
 
-        if (tempHead != newHead) {
+        if(newHead!=null){
             newHead.next = tempHead;
+        }else{
+            newHead = tempHead;
         }
 
-        if (tempTail != null && newTail != null) {
+        if (newTail != null && tempTail != null) {
             tempTail.next = newTail;
+        } else if (newTail == null && tempTail != null) {
+            tempTail.next = null;
         }
 
-        return newHead;
+        return m > 1 ? head : newHead;
     }
 
     static class ListNode {
