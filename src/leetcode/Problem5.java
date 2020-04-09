@@ -30,14 +30,17 @@ public class Problem5 {
             return "";
         }
 
+        //声明一个二维数组，用来指明i和j之间的子串是否是回文串
         boolean a[][] = new boolean[s.length()][s.length()];
         int low = 0;
         int len = 1;
 
+        //先确定长度为１的，都是回文串
         for (int i = 0; i < s.length(); i++) {
             a[i][i] = true;
         }
 
+        //再确定长度为２的子串是否对称.
         for (int i = 0; i < s.length() - 1; i++) {
             a[i][i + 1] = s.charAt(i) == s.charAt(i + 1);
             if (a[i][i + 1] && len < 2) {
