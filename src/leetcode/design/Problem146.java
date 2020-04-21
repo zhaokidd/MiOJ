@@ -41,9 +41,12 @@ public class Problem146 {
                 return -1;
 
             Integer keyObject = (Integer) key;
+
+            //如果存储map中不包含制定key值,则返回-1
             if (!insertionMap.containsKey(keyObject)) {
                 return -1;
             } else {
+                //如果包含制定key值，则返回制定元素，在排序列表中
                 Integer value = insertionMap.get(keyObject);
                 accessList.remove(keyObject);
                 accessList.addLast(keyObject);
