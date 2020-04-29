@@ -47,6 +47,9 @@ public class HeapK {
 
     }
 
+    /**
+     * 对前K个元素进行堆的构造
+     * */
     private static void buildHeap(int[] nums, int k) {
         for (int i = k / 2 - 1; i >= 0; i--) {
             heaplify(nums, k, i);
@@ -54,18 +57,18 @@ public class HeapK {
     }
 
     /**
-     * @param i 当前序号
+     * @param index 当前序号
      * @param k 第k大数字
      * */
-    private static void heaplify(int[] nums, int k, int i) {
-        int minPos = i;
+    private static void heaplify(int[] nums, int k, int index) {
+        int minPos = index;
         while (true) {
-            if ((2 * i + 1) < k && nums[2 * i + 1] < nums[i]) minPos = 2 * i + 1;
-            if ((2 * i + 2) < k && nums[2 * i + 2] < nums[minPos]) minPos = 2 * i + 2;
-            if (minPos == i) break;
+            if ((2 * index + 1) < k && nums[2 * index + 1] < nums[index]) minPos = 2 * index + 1;
+            if ((2 * index + 2) < k && nums[2 * index + 2] < nums[minPos]) minPos = 2 * index + 2;
+            if (minPos == index) break;
 
-            swap(nums, i, minPos);
-            i = minPos;
+            swap(nums, index, minPos);
+            index = minPos;
         }
     }
 
