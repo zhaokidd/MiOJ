@@ -1,5 +1,10 @@
 package src.leetcode.tree;
 
+/**
+ *镜像式的翻转二叉树
+ *
+ * 注意点：单侧一字长蛇的情况，需要判断一遍节点为null的特殊场景.
+ * */
 public class LeetCode226ReverseBinaryTree {
     public static void main(String[] args){
 
