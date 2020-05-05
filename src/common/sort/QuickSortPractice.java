@@ -19,7 +19,7 @@ public class QuickSortPractice {
 
         int base = array[low];
 
-        //base值在low处
+        //base值在low处.从右边的high坐标开始向low方向遍历，遇到小于base的情况停止，交换low和high两个坐标(初始时low在base位置.)
         while (low < high) {
             while (low < high && array[high] >= base) high--;
             if (low < high) {
@@ -27,6 +27,7 @@ public class QuickSortPractice {
                 low++;
             }
 
+            //从low坐标开始向high遍历，遇到大于base的元素停止，然后交换low和high位置元素.
             while (low < high && array[low] < base) low++;
             if (low < high) {
                 switchElement(array, low, high);
@@ -34,6 +35,7 @@ public class QuickSortPractice {
             }
         }
 
+        //最终停止的位置就是base元素，再以base元素做划分，对base元素两侧分别做排序.
         quickSort(array, 0, low - 1);
         quickSort(array, low + 1, high);
     }
