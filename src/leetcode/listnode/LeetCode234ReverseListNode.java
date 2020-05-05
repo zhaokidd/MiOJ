@@ -1,5 +1,11 @@
 package src.leetcode.listnode;
 
+/***
+ *
+ * 判断回文子串
+ * 空间复杂度O(1),时间复杂度O(n)
+ * 保留头部节点，在递归回朔时判断头结点和尾节点.
+ * */
 public class LeetCode234ReverseListNode {
     public static void main(String[] args) {
         ListNode fir = new ListNode(1);
