@@ -4,8 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
+ * <p>
+ * candidates 中的数字可以无限制重复被选取。
+ *
+ * 思路：使用回朔法解题
+ */
 public class LeetCode39GetTotalCombinationNum {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
     }
 
@@ -17,6 +24,7 @@ public class LeetCode39GetTotalCombinationNum {
 
         Arrays.sort(candidates);
 
+        //以每一个数为基准
         for (int i = 0; i < candidates.length; i++) {
             List<Integer> curList =new ArrayList<>();
             curList.add(candidates[i]);
@@ -32,7 +40,9 @@ public class LeetCode39GetTotalCombinationNum {
 
         if (totalCount == target) {
             resList.add(curList);
-        } else if (totalCount < target) {
+        }
+        //剪枝操作(totalCount > target直接返回)
+        else if (totalCount < target) {
             List<Integer> list1 = new ArrayList<>(curList);
             List<Integer> list2 = new ArrayList<>(curList);
 
